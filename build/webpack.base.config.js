@@ -1,9 +1,4 @@
-
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BrowerSyncPlugin = require('browser-sync-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   entry: { main: './src/main.js' },
@@ -39,24 +34,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [ 
-    new ExtractTextPlugin({filename: './css/main.css'}),
-     new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: './src/index.html',
-      filename: 'index.html'
-    }),
-    new BrowerSyncPlugin({
-      host:'localhost',
-      port:9000,
-      server:{baseDir:['dist']},
-    })
-  ],
-  devServer:{
-    contentBase:path.resolve(__dirname,"src"),
-    compress:true,
-    port:9000
-  },
-  devtool:'source-map'
-};;
+  devServer:{},
+}
